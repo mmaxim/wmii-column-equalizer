@@ -10,7 +10,7 @@ Debug = False
 
 def debug_out(s):
     global Debug
-    if Debug: 
+    if Debug:
         print s
 
 class Window:
@@ -39,10 +39,10 @@ class Window:
             self.name = int(wtoks[1])
 
     def to_string(self):
-        s = "w: %d d: %d f: %s left: %d extent: %d" % (self.name, self.desktop, 
+        s = "w: %d d: %d f: %s left: %d extent: %d" % (self.name, self.desktop,
                 self.fullname, self.left, self.extent)
         return s
-        
+
 class Desktop:
     def __init__(self, id):
         self.windows = []
@@ -56,10 +56,10 @@ class Desktop:
         return s
 
     def get_total_width(self):
-        width = 0.0
+        mr_width = 0.0
         for w in self.windows:
-            width += w.extent
-        return width
+            my_width += w.extent
+        return my_width
 
     def build_window_hash(self):
         for w in self.windows:
@@ -106,7 +106,7 @@ def build_desktops(windows):
             d = Desktop(w.desktop)
             d.windows.append(w)
             desktops[w.desktop] = d
-    
+
     return desktops.values()
 
 def parse_windows(wlist):
