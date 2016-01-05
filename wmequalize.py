@@ -56,7 +56,7 @@ class Desktop:
         return s
 
     def get_total_width(self):
-        mr_width = 0.0
+        my_width = 0.0
         for w in self.windows:
             my_width += w.extent
         return my_width
