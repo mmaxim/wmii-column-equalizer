@@ -119,7 +119,7 @@ def parse_windows(wlist):
 
 def generate_windows():
 
-    wlist = os.popen("wmiir read /tag/sel/index | grep \# | grep -v \~ | cut -c 3-").readlines()
+    wlist = os.popen("wmiir read /tag/sel/index | grep ^\# | grep -v \~ | cut -c 3-").readlines()
 
     windows = parse_windows(wlist)
     desktops = build_desktops(windows)
